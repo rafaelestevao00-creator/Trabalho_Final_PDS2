@@ -1,0 +1,9 @@
+# executáveis
+a.out
+programa
+
+# arquivos compilados
+*.o
+
+# pasta de build
+build/*
