@@ -1,0 +1,89 @@
+USER STORIES - SMART HOME
+
+1. Controle de atuadores
+   Descrição:
+   Como usuário, quero ligar e desligar atuadores da casa para controlar o ambiente.
+
+Critérios de aceitação:
+
+* Permitir ligar e desligar atuadores (luz, som, etc.)
+* Exibir o estado atual do atuador
+* Impedir ações em dispositivos que não sejam atuadores
+* Permitir controle individual de atuadores
+
+--------------
+
+2. Configuração da casa
+   Descrição:
+   Como usuário, quero carregar a configuração da casa para inicializar o sistema.
+
+Critérios de aceitação:
+
+* Carregar dispositivos a partir de um arquivo
+* Identificar corretamente sensores e atuadores
+* Associar dispositivos a ambientes
+* Validar dados inválidos na configuração
+
+-----------------
+
+3. Criação de macros
+   Descrição:
+   Como usuário, quero criar macros compostas por ações para automatizar o controle dos atuadores.
+
+Critérios de aceitação:
+
+* Permitir criar uma sequência de ações
+* Permitir associar ações a atuadores
+* Permitir nomear macros
+* Permitir editar e remover ações da macro
+
+-------------------
+
+4. Execução de macros
+   Descrição:
+   Como usuário, quero executar macros para realizar múltiplas ações automaticamente.
+
+Critérios de aceitação:
+
+* Executar todas as ações na ordem definida
+* Garantir que as ações sejam aplicadas apenas a atuadores válidos
+* Interromper execução em caso de falha crítica
+* Informar o resultado da execução
+
+-----------------------
+
+5. Monitoramento de sensores
+   Descrição:
+   Como usuário, quero monitorar sensores para acompanhar condições do ambiente.
+
+Critérios de aceitação:
+
+* Exibir valores atuais dos sensores
+* Atualizar leituras durante a simulação
+* Detectar valores fora de limites definidos
+* Gerar alertas quando necessário
+
+------------------------------
+
+6. Simulação de funcionamento e falhas
+   Descrição:
+   Como desenvolvedor, quero simular o funcionamento e falhas do sistema para validar o comportamento.
+
+Critérios de aceitação:
+
+* Simular funcionamento normal de sensores e atuadores
+* Simular falhas em atuadores 
+* Simular falhas de comunicação
+
+--------
+
+7. Controle por ambiente
+   Descrição:
+   Como usuário, quero controlar atuadores por ambiente para facilitar o uso do sistema.
+
+Critérios de aceitação:
+
+* Listar dispositivos por ambiente
+* Permitir executar ações em múltiplos atuadores de um ambiente
+* Exibir estado geral dos atuadores no ambiente
+* Permitir adicionar e remover dispositivos do ambiente

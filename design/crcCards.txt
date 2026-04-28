@@ -1,0 +1,281 @@
+CRC CARDS - SMART HOME
+
+Classe: Sistema
+
+Responsabilidades:
+
+* Gerenciar dispositivos
+* Gerenciar ambientes
+* Executar macros
+* Carregar configuração da casa
+* Controlar simulação
+* Monitorar sensores
+* Gerenciar alertas
+
+Colaborações:
+
+* Dispositivo
+* Ambiente
+* Macro
+
+-------
+
+Classe: Dispositivo
+
+Nível: Superclasse
+Tipo: Abstrata
+
+Responsabilidades:
+
+* Armazenar identificação do dispositivo
+* Manter referência ao protocolo de comunicação
+* Definir interface comum para dispositivos
+* Permitir consulta de status
+* Integrar com o sistema
+
+Colaborações:
+
+* Sistema
+* Protocolo
+
+----------
+
+Classe: Sensor
+
+Nível: Subclasse de Dispositivo
+
+Responsabilidades:
+
+* Medir valores do ambiente
+* Atualizar leituras
+* Detectar limites críticos
+* Gerar alertas
+* Armazenar histórico de medições
+* Simular dados
+
+Colaborações:
+
+* Sistema
+* Dispositivo
+
+----------------------
+
+Classe: Atuador
+
+Nível: Subclasse de Dispositivo
+Tipo: Abstrata
+
+Responsabilidades:
+
+* Executar ações que alteram o estado do ambiente
+* Manter estado interno (ligado/desligado)
+* Permitir alteração de estado
+* Validar comandos recebidos
+* Reportar estado atual
+
+Colaborações:
+
+* Sistema
+* Dispositivo
+
+------------------------
+
+Classe: Luz
+
+Nível: Subclasse de Atuador
+
+Responsabilidades:
+
+* Ligar iluminação
+* Desligar iluminação
+* Controlar intensidade de luz
+* Reportar estado atual
+* Integrar com macros
+
+Colaborações:
+
+* Atuador
+* Sistema
+
+----------------------
+
+Classe: Som
+Nível: Subclasse de Atuador
+Tipo: Normal
+Responsabilidades:
+
+* Ligar sistema de som
+* Desligar sistema de som
+* Controlar volume
+* Reproduzir conteúdo
+* Reportar estado atual
+  Colaborações:
+* Atuador
+* Sistema
+
+---------------------------
+
+Classe: Termostato
+
+Nível: Subclasse de Atuador
+
+Responsabilidades:
+
+* Ajustar temperatura
+* Manter temperatura desejada
+* Validar limites de temperatura
+* Reportar estado atual
+* Integrar com sensores
+
+Colaborações:
+
+* Atuador
+* Sensor
+
+----------------------------
+
+Classe: Ambiente
+
+Responsabilidades:
+
+* Armazenar dispositivos
+* Agrupar dispositivos por local
+* Permitir controle coletivo
+* Exibir estado geral
+* Adicionar/remover dispositivos
+
+Colaborações:
+
+* Sistema
+* Dispositivo
+
+-------------------------
+
+Classe: Protocolo
+
+Responsabilidades:
+
+* Definir tipo de comunicação
+* Verificar compatibilidade entre dispositivos
+* Simular conexão
+* Gerenciar falhas de comunicação
+* Permitir troca de dados
+
+Colaborações:
+
+* Sistema
+* Dispositivo
+
+------------------------------------
+
+Classe: Macro
+
+Responsabilidades:
+
+* Armazenar lista de ações
+* Executar sequência de ações
+* Permitir edição de ações
+* Validar ações antes da execução
+* Nomear macro
+* Controlar ordem de execução
+
+Colaborações:
+
+* Sistema
+* Acao
+
+---------------------------------
+
+Classe: Acao
+
+Nível: Superclasse
+Tipo: Abstrata
+
+Responsabilidades:
+
+* Definir interface de execução de uma ação
+* Armazenar referência ao atuador alvo
+* Garantir que toda ação possa ser executada
+* Permitir polimorfismo entre ações
+* Servir como base para especializações
+
+Colaborações:
+
+* Atuador
+* Macro
+
+---------------------------------
+
+Classe: LigarDispositivo
+
+Nível: Subclasse de Acao
+
+Responsabilidades:
+
+* Executar a operação de ligar um atuador
+* Verificar estado atual
+* Atualizar estado para ligado
+* Garantir consistência da operação
+* Reportar sucesso ou falha
+
+Colaborações:
+
+* Atuador
+* Acao
+
+-------------------------------
+
+Classe: DesligarDispositivo
+
+Nível: Subclasse de Acao
+
+Responsabilidades:
+
+* Executar a operação de desligar um atuador
+* Verificar estado atual
+* Atualizar estado para desligado
+* Garantir consistência da operação
+* Reportar sucesso ou falha
+
+Colaborações:
+
+* Atuador
+* Acao
+
+-----------------------------
+
+Classe: AjustarTemperatura
+
+Nível: Subclasse de Acao
+
+Responsabilidades:
+
+* Ajustar temperatura de um atuador (termostato)
+* Armazenar valor desejado
+* Validar limites aceitáveis
+* Aplicar valor ao dispositivo
+* Garantir compatibilidade
+
+Colaborações:
+
+* Termostato
+* Acao
+
+-------------------------
+
+Classe: AlternarEstado
+
+Nível: Subclasse de Acao
+
+Responsabilidades:
+
+* Alternar estado atual do atuador
+* Verificar estado atual
+* Aplicar mudança oposta
+* Simplificar controle genérico
+* Garantir consistência da operação
+
+Colaborações:
+
+* Atuador
+* Acao
